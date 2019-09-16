@@ -1,0 +1,59 @@
+server:
+  port: 8088
+urlstr: 127.0.0.1:8088/
+spring:
+  #  \u6570\u636E\u5E93\u8FDE\u63A5\u4FE1\u606F
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/sellhouse
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    initial-size: 8 #\u521D\u59CB\u5316\u8FDE\u63A5\u5927\u5C0F
+    min-idle: 5 #\u6700\u5C0F\u7A7A\u95F2\u8FDE\u63A5\u6570
+    max-active: 10 #\u6700\u5927\u8FDE\u63A5\u6570
+    query-timeout: 6000 #\u67E5\u8BE2\u8D85\u65F6\u65F6\u95F4
+    transaction-query-timeout: 6000 #\u4E8B\u52A1\u67E5\u8BE2\u8D85\u65F6\u65F6\u95F4
+    remove-abandoned-timeout: 1800 #\u5173\u95ED\u7A7A\u95F2\u8FDE\u63A5\u8D85\u65F6\u65F6\u95F4
+    filter-class-names: stat
+    filters: stat,config
+
+  #  freemarker\u9875\u9762\u6A21\u677F\u914D\u7F6E\u4FE1\u606F
+  freemarker:
+    suffix: .ftl
+    template-loader-path: classpath:/templates
+    charset: utf-8
+    cache: true
+    content-type: text/html
+    expose-request-attributes: true
+    expose-session-attributes: true
+    expose-spring-macro-helpers: true
+    settings:
+      datetime_format: yyyy--MM--dd HH:mm:ss
+      auto_import: common/common.ftl as common
+
+  mail:
+    host: smtp.163.com
+    # \u90AE\u7BB1\u5730\u5740
+    username: wk_test@163.com
+    # \u90AE\u7BB1\u6388\u6743\u7801
+    password: wk1848222
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+#  mybatis\u7684\u914D\u7F6E\u4FE1\u606F
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.springboot.demo.entity
+#  \u5206\u9875\u63D2\u4EF6\u914D\u7F6E
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+

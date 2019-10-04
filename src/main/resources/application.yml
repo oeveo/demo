@@ -2,6 +2,10 @@ server:
   port: 8088
 urlstr: 127.0.0.1:8088/
 spring:
+  redis:
+    database: 15
+    host: 127.0.0.1
+    port: 6379
   #  \u6570\u636E\u5E93\u8FDE\u63A5\u4FE1\u606F
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource

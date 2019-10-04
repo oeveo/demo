@@ -7,6 +7,7 @@ import com.springboot.demo.mapper.CommunityMapper;
 import com.springboot.demo.mapper.HouseMapper;
 import com.springboot.demo.service.HouseSevice;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

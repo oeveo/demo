@@ -8,6 +8,7 @@ import com.springboot.demo.entity.User;
 import com.springboot.demo.service.CommentService;
 import com.springboot.demo.service.HouseSevice;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -100,6 +101,7 @@ public class HouseController {
     /**
      * 我的房产
      */
+    @Cacheable("ownlist")
     @RequestMapping("/house/ownlist/{page}")
     public String ownlist(@PathVariable("page") int page,HttpServletRequest request, Model model){
         PageHelper.startPage(page,2);

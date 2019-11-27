@@ -9,8 +9,14 @@ import org.springframework.scheduling.annotation.Async;
 @SpringBootApplication
 @ImportResource(locations = { "classpath:druid-bean.xml" })
 @Async
-// 开启缓存
+/** 开启缓存 */
 @EnableCaching
+/**
+ * DemoApplication class
+ *
+ * @author wk
+ * @date 2019/8/15
+ */
 public class DemoApplication {
 
 	public static void main(String[] args) {
